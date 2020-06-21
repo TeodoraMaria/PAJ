@@ -1,0 +1,30 @@
+package standaloneClient;
+
+import java.util.Hashtable;
+import java.util.Properties;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import com.example.FirstStatelessEjbRemote;
+
+public class Main {
+	
+	public static void main(String[] args) throws NamingException {
+		Properties jndiProps = System.getProperties();
+		jndiProps.put(Context.INITIAL_CONTEXT_FACTORY,
+		        "com.sun.enterprise.naming.impl.SerialInitContextFactory");
+		    jndiProps.put(Context.STATE_FACTORIES,
+		        "com.sun.corba.ee.impl.presentation.rmi.JNDIStateFactoryImpl");
+		    jndiProps.put(Context.URL_PKG_PREFIXES, "com.sun.enterprise.naming");
+		
+		jndiProps.put("org.omg.CORBA.ORBInitialHost", "ec2-54-81-151-189.compute-1.amazonaws.com");
+		jndiProps.put("org.omg.CORBA.ORBInitialPort", "3700");
+		System.setProperties(jndiProps);
+		Context context = new InitialContext(jndiProps);
+		FirstStatelessEjbRemote firstEjb = (FirstStatelessEjbRemote) context.lookup("java:global/myFirtEar/myFirstEjb/FirstStatelessEjb!com.example.FirstStatelessEjbRemote");
+		firstEjb.insert("Teo");
+	}
+
+}

@@ -1,0 +1,16 @@
+package standaloneClient;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import com.example.FirstStatelessEjbRemote;
+
+public class Main {
+	
+	public static void main(String[] args) throws NamingException {
+		InitialContext context = new InitialContext();
+		FirstStatelessEjbRemote firstEjb = (FirstStatelessEjbRemote) context.lookup("java:global/myFirtEar/myFirstEjb/FirstStatelessEjb:ec2-54-167-174-88.compute-1.amazonaws.com:4848#com.example.FirstStatelessEjb");
+		firstEjb.insert("Teo");
+	}
+
+}

@@ -1,0 +1,24 @@
+package standaloneClient;
+
+import java.util.Hashtable;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import com.example.FirstStatelessEjbRemote;
+
+public class Main {
+	
+	public static void main(String[] args) throws NamingException {
+		Hashtable env = new Hashtable();
+		
+		env.put(Context.INITIAL_CONTEXT_FACTORY, 
+                "com.sun.jndi.fscontext.RefFSContextFactory");
+		env.put(Context.PROVIDER_URL, "ec2-54-81-151-189.compute-1.amazonaws.com");
+		Context context = new InitialContext();
+		FirstStatelessEjbRemote firstEjb = (FirstStatelessEjbRemote) context.lookup("java:global/myFirtEar/myFirstEjb/FirstStatelessEjb!com.example.FirstStatelessEjb");
+		firstEjb.insert("Teo");
+	}
+
+}

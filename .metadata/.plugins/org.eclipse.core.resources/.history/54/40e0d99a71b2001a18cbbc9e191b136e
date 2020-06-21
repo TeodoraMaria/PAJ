@@ -1,0 +1,23 @@
+package standaloneClient;
+
+import java.util.Hashtable;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import com.example.FirstStatelessEjbRemote;
+
+public class Main {
+	
+	public static void main(String[] args) throws NamingException {
+		Hashtable<String, String> env = new Hashtable<String, String>();
+		
+		env.put("org.omg.CORBA.ORBInitialHost", "ec2-54-81-151-189.compute-1.amazonaws.com");
+		env.put("org.omg.CORBA.ORBInitialPort", "4848");
+		Context context = new InitialContext(env);
+		FirstStatelessEjbRemote firstEjb = (FirstStatelessEjbRemote) context.lookup("java:global/myFirtEar/myFirstEjb/FirstStatelessEjb!com.example.FirstStatelessEjb");
+		firstEjb.insert("Teo");
+	}
+
+}

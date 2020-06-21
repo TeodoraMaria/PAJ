@@ -1,0 +1,8 @@
+package com.example;
+
+import javax.ejb.Remote;
+
+public interface FirstStatelessEjbRemote {
+
+	void inser(String name);
+}

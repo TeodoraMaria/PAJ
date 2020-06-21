@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<server auto-publish-setting="1" glassfish.adminname="admin" glassfish.adminpassword="parola" glassfish.adminserverportnumber="4848" glassfish.domainpath="/home/tceanga/Documents/glassfish4/glassfish/domains/domain1" glassfish.serverportnumber="8080" hostname="ec2-54-167-174-88.compute-1.amazonaws.com" id="GlassFish 4 at ec2-54-167-174-88.compute-1.amazonaws.com" name="GlassFish 4 at ec2-54-167-174-88.compute-1.amazonaws.com" runtime-id="GlassFish 4" server-type="glassfish.server" server-type-id="glassfish.server" start-timeout="240" stop-timeout="240" timestamp="5">
+  <list key="modules" value0="myFirtEar::org.eclipse.jst.jee.server:myFirtEar::jst.ear::7.0"/>
+</server>

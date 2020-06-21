@@ -1,0 +1,22 @@
+package standaloneClient;
+
+import java.util.Hashtable;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import com.example.FirstStatelessEjbRemote;
+
+public class Main {
+	
+	public static void main(String[] args) throws NamingException {
+		Hashtable<String, String> env = new Hashtable<String, String>();
+		env.put(Context.INITIAL_CONTEXT_FACTORY,  
+		    "com.sun.enterprise.naming.SerialInitContextFactory");
+		Context context = new InitialContext(env);
+		FirstStatelessEjbRemote firstEjb = (FirstStatelessEjbRemote) context.lookup("java:global/myFirtEar/myFirstEjb/FirstStatelessEjb!com.example.FirstStatelessEjb");
+		firstEjb.insert("Teo");
+	}
+
+}

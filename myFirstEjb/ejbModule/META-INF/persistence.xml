@@ -3,5 +3,6 @@
 	<persistence-unit name="myFirstEjb">
 		<jta-data-source>jdbc/test</jta-data-source>
 		<class>com.example.User</class>
+		<class>com.example.Organization</class>
 	</persistence-unit>
 </persistence>

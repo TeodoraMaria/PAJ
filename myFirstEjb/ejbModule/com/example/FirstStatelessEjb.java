@@ -23,8 +23,8 @@ public class FirstStatelessEjb implements FirstStatelessEjbRemote {
     }
     
     @Override
-    public void insert(String name, String password) {
-    	entityManager.persist(new User(password,name));
+    public void insert(String name, String password, boolean isadmin) {
+    	entityManager.persist(new User(password,name,isadmin));
     }
 
 }

@@ -2,7 +2,6 @@ package com.example.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.ejb.LocalBean;
@@ -12,16 +11,17 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.example.dao.UserDAORemote;
-import com.example.dto.ChangePasswordDTO;
+import com.example.User;
 import com.example.dto.LoginDTO;
+import com.example.dto.OrganizationDTO;
+import com.example.dto.RegisterUserDTO;
+import com.example.dto.ResourceDTO;
 import com.example.dto.UserDTO;
-import com.example.exception.ChangePasswordException;
 import com.example.exception.LoginException;
+import com.example.exception.RegisterUserException;
+import com.example.exception.UsersException;
 import com.example.util.DtoToEntity;
 import com.example.util.EntityToDTO;
-
-import com.example.User;
 
 /**
  * Session Bean implementation class UserDAO
@@ -106,28 +106,55 @@ public class UserDao implements UserDAORemote {
 	}
 
 	@Override
-	public Boolean updatePassword(ChangePasswordDTO changePasswordDTO) throws ChangePasswordException {
-		User user = null;
-		LOGGER.log(Level.INFO, "Trying to update password for:  " + changePasswordDTO.toString());
+	public UserDTO registerUser(RegisterUserDTO registerDTO) throws RegisterUserException {
+		User user = new User(registerDTO.getUsername(),registerDTO.getPassword(), false);
 		try {
-			user = entityManager.createNamedQuery("findUserByUsername", User.class)
-					.setParameter("username", changePasswordDTO.getUsername()).getSingleResult();
-			if (user.getPassword().equals(changePasswordDTO.getOldPassword())) {
-				if (!changePasswordDTO.getOldPassword().equals(changePasswordDTO.getNewPassword())) {
-					user.setPassword(changePasswordDTO.getNewPassword());
-					user = entityManager.merge(user);
-					LOGGER.log(Level.INFO, "Successfully changed password for:  " + changePasswordDTO.toString());
-					return true;
-				} else {
-					throw new ChangePasswordException(
-							"Please choose another new password, not the same as the old one!");
-				}
-			} else
-				throw new ChangePasswordException("The old password is not valid.");
-		} catch (NoResultException e) {
-			throw new ChangePasswordException("The username is not valid!");
+			entityManager.getTransaction().begin();
+			entityManager.persist(user);
+			entityManager.getTransaction().commit();
+			
+		} catch (RegisterUserException e) {
+			throw new LoginException("Registration failed!");
 		}
 
+		UserDTO userDTO = entityToDTO.convertUser(user);
+		return userDTO;
+	}
+
+	@Override
+	public List<UserDTO> getAllUsers() {
+		List<User> users = null;
+		try {
+			users = entityManager.createNamedQuery("findAllUsers", User.class).getResultList();
+		}
+		catch (NoResultException e) {
+			throw new UsersException("No users found!");
+		}
+		List<UserDTO> usersDTO = new ArrayList<UserDTO>();
+		for(User user : users)
+			usersDTO.add(entityToDTO.convertUser(user));
+		return usersDTO;
+	}
+
+	@Override
+	public List<UserDTO> getAllUsersByOrganization(OrganizationDTO organizationDTO) {
+		List<User> users = null;
+		try {
+			users = entityManager.createNamedQuery("findUsersByOrganization", User.class).getResultList();
+		}
+		catch (NoResultException e) {
+			throw new UsersException("No users found!");
+		}
+		List<UserDTO> usersDTO = new ArrayList<UserDTO>();
+		for(User user : users)
+			usersDTO.add(entityToDTO.convertUser(user));
+		return usersDTO;
+	}
+
+	@Override
+	public List<UserDTO> getAllUsersByResource(ResourceDTO resourceDTO) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

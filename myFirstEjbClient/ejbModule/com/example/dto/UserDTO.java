@@ -7,6 +7,8 @@ public class UserDTO implements Serializable {
 	private int id;
 	private String username;
 	private String password;
+	private boolean isAdmin;
+	private OrganizationDTO organization;
 
 	public UserDTO() {
 		super();
@@ -36,15 +38,33 @@ public class UserDTO implements Serializable {
 		this.password = password;
 	}
 
-	public UserDTO(String username, String password) {
+	public UserDTO(String username, String password, boolean isAdmin, OrganizationDTO organization) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.isAdmin = isAdmin;
+		this.organization = organization;
+	}
+	
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 
 	@Override
 	public String toString() {
 		return "UserDTO [id=" + id + ", username=" + username + ", password=" + password + "]";
+	}
+
+	public OrganizationDTO getOrganization() {
+		return organization;
+	}
+
+	public void setOrganization(OrganizationDTO organization) {
+		this.organization = organization;
 	}
 
 }

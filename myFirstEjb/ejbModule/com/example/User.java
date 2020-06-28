@@ -8,23 +8,36 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="USER")
-//@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
-@NamedQuery(name = "findUserByUsername", query = "SELECT u FROM User u WHERE u.username = :username")
+@Table(name="User")
+@NamedQueries({
+	@NamedQuery(name = "findAllUsers", query = "SELECT u FROM User u"),
+	@NamedQuery(name = "findUserByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
+})
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "iduser")
 	private int iduser;
 
+	@Column(name = "password")
 	private String password;
 
+	@Column(name = "username")
 	private String username;
+	
+	@Column(name = "isadmin")
+	private boolean isadmin;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "organizationId")
+	private Organization organization;
 
 	public User() {
 	}
 
-	public User(String password, String username) {
+	public User(String password, String username, boolean isAdmin) {
 		super();
 		this.password = password;
 		this.username = username;
@@ -52,6 +65,22 @@ public class User implements Serializable {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public boolean isAdmin() {
+		return isadmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isadmin = isAdmin;
+	}
+	
+	public Organization getOrganization() {
+		return organization;
+	}
+	
+	public void setOrganization(Organization organization) {
+		this.organization = organization;
 	}
 
 }

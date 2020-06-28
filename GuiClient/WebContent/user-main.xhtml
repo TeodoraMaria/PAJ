@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Login</title>
+	<h:outputStylesheet name="/css/user/user-main.css" />
+	<h:outputStylesheet name="/css/bootstrap.min.css" />
+</h:head>
+<h:body>
+	<div class="wrapper">
+		<div class="container">
+			<h1 class="welcome-message">Welcome!</h1>
+			<h:outputText value = "#{loginBean.userDTO.organization.name}" />
+			<div class="resource-group">
+				<div class="resource">
+					<h:graphicImage for="id3" class="resource-logo" library="images"
+						name="slack.png" />
+					<div class="resources-permissions">
+						<h4 class="permission-text">Permisions</h4>
+						<ul class="permission-list">
+							<li class="permission-item">Read</li>
+							<li class="permission-item">View</li>
+						</ul>
+					</div>
+					<div class="buttons-container">
+						<h:commandButton class="btn btn-register" value="Open"
+							action="#{loginBean.register}"></h:commandButton>
+						<h:commandButton class="btn btn-register" value="Request"
+							action="#{loginBean.register}"></h:commandButton>
+					</div>
+				</div>
+				<div class="resource">
+					<h:graphicImage for="id3" class="resource-logo" library="images"
+						name="skype.png" />
+					<div class="resources-permissions">
+						<h4 class="permission-text">Permisions</h4>
+						<ul class="permission-list">
+							<li class="permission-item">Write</li>
+							<li class="permission-item">View</li>
+						</ul>
+					</div>
+					<div class="buttons-container">
+						<h:commandButton class="btn btn-register" value="Open"
+							action="#{loginBean.register}"></h:commandButton>
+						<h:commandButton class="btn btn-register" value="Request"
+							action="#{loginBean.register}"></h:commandButton>
+					</div>
+				</div>
+				<div class="resource">
+					<h:graphicImage for="id3" class="resource-logo" library="images"
+						name="outlook.png" />
+					<div class="resources-permissions">
+						<h4 class="permission-text">Permisions</h4>
+						<ul class="permission-list">
+							<li class="permission-item">Read</li>
+							<li class="permission-item">Write</li>
+							<li class="permission-item">View</li>
+						</ul>
+					</div>
+					<div class="buttons-container">
+						<h:commandButton class="btn" value="Open"
+							action="#{loginBean.register}"></h:commandButton>
+						<h:commandButton class="btn" value="Request"
+							action="#{loginBean.register}"></h:commandButton>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

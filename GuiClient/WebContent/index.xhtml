@@ -8,36 +8,37 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Login</title>
 	<h:outputStylesheet name="/css/main.css" />
+	<h:outputStylesheet name="/css/bootstrap.min.css" />
 </h:head>
 <h:body>
-
-
-
-
+	<div class="wrapper">
+	
+	<div class="container">
 	<h:form label="loginForm" class="form">
-
-
-		<h2 class="title-form-login">Please login</h2>
+		<h:graphicImage class="logo" library="images" name="onelogo.png"/>
 		<br />
-		<h:inputText class="effect-input" required="true" label="Username"
-			placeholder="Username" validatorMessage="Enter username"
-			value="#{loginBean.loginDTO.username}"></h:inputText>
-		<br />
-		<br />
-		<h:inputSecret class="effect-input" label="Password" required="true"
+		<div class="form-group">
+			<label for="email-field">Email address</label>
+			<h:inputText class="form-control" aria-describedby="emailHelp" id="email-field" required="true" label="Username"
+				placeholder="Username" validatorMessage="Enter username"
+				value="#{loginBean.loginDTO.username}"></h:inputText>
+			<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		</div>
+		<div class="form-group">
+	    	<label for="exampleInputPassword1">Password</label>
+	   		<h:inputSecret class="form-control" label="Password" required="true"
 			placeholder="Password" validatorMessage="Enter password"
-			value="#{loginBean.loginDTO.password}"></h:inputSecret>
-		<br />
-		<br />
-		<h:commandButton class="btns" value="Login"
+			value="#{loginBean.loginDTO.password}"></h:inputSecret>	
+	   	</div>
+		<h:commandButton class="btn btn-login" value="Login"
 			action="#{loginBean.loginUser}"></h:commandButton>
-		<br />
 		<h:messages infoStyle="color:darkgreen" errorStyle="color:darkred"></h:messages>
-
+		<h:commandButton class="btn btn-register" value="Register"
+			action="#{loginBean.register}"></h:commandButton>
 
 
 	</h:form>
-
-
+</div>
+</div>
 </h:body>
 </html>

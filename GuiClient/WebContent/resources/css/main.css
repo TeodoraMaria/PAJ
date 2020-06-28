@@ -1,3 +1,48 @@
+.wrapper{
+	width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: url(#{resource['images/bg.jpg']});
+    background-size: cover;
+    background-repeat: no-repeat;
+	 
+}
+.form{
+	padding: 20px;
+    background: white;
+    border-radius: 5px;
+}
+
 .title-form-login {
 	color:red;
+}
+.container{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:50%;
+	padding:20px;
+	margin-top:5%;
+}
+
+.btn-login{
+	width:100%;
+	background: #6A9D67;
+	color:white;
+	font-weight:bolder;
+}
+.btn-register{
+	width:100%;
+	margin-top:10px;
+	background:#c7c7c7;
+	font-weight:bolder;
+}
+
+.logo{
+	  margin-left: auto;
+	  margin-right: auto;
+	  display: block;
+	  height:70px;
 }

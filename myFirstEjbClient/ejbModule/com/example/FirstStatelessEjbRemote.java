@@ -5,5 +5,5 @@ import javax.ejb.Remote;
 @Remote
 public interface FirstStatelessEjbRemote {
 
-	void insert(String name, String password);
+	void insert(String name, String password, boolean isadmin);
 }

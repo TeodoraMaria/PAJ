@@ -1,31 +1,343 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Login</title>
-	<h:outputStylesheet name="/css/login.css" />
+	<link
+			href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"></script>
+	<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"></script>
+	<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"></script>
+	<script
+			src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+	<h:outputStylesheet name="/css/admin/admin.css" />
+	<h:outputStylesheet name="/css/bootstrap.min.css" />
+	<h:outputScript target="head" name="/js/admin.js" />
 </h:head>
 <h:body>
+	<div class="wrapper">
+		<div class="container">
+			<ul class="nav nav-pills nav-fill">
+				<li class="active nav-item"><a data-toggle="tab"
+											   class="nav-link active" href="#home">Users</a></li>
+				<li class="nav-item"><a data-toggle="tab" class="nav-link "
+										href="#pending-requests">Pending requests</a></li>
+				<li class="nav-item"><a data-toggle="tab" class="nav-link "
+										href="#identity-manager">Identity manager</a></li>
+			</ul>
 
+			<div class="tab-content">
+				<div id="home" class="tab-pane fade in active">
+					<div class="col-md-12">
+						<h:inputText value="" a:placeholder="Search for names.."
+									 id="myInput" />
+						<table id="example"
+							   class="display responsive nowrap table table-striped table-bordered table-dark"
+							   style="width: 100%">
+							<thead>
+							<tr>
+								<th class="th-sm">User email</th>
+								<th class="th-sm">Resurce 1</th>
+								<th class="th-sm">Resurce 2</th>
+								<th class="th-sm">Resurce 3</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
 
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div id="pending-requests" class="tab-pane fade">
+					<h3>Pending requests</h3>
+					<ul>
+						<ui:repeat value="['Petu']" var="cities">
+							<li class="pending-request">
+								<p class="user-name">Nume</p>
+								<p class="resource-request">Resource1-READ</p>
+								<div class="buttons-container">
+									<h:commandButton class="btn btn-success" value="Accept"
+													 action="#{loginBean.register}"></h:commandButton>
+									<h:commandButton class="btn btn-danger" value="Deny"
+													 action="#{loginBean.register}"></h:commandButton>
+								</div>
+							</li>
+						</ui:repeat>
+					</ul>
+				</div>
+				<div id="identity-manager" class="tab-pane fade">
+					<div class="row">
+						<div class="col col-md-6 add-organization-container border-right">
+							<h4>Add organization</h4>
+							<h:form label="organizationRegisterForm" class="form">
+								<div class="inputs-group">
+									<div class="row">
+										<div class="form-group.form-control-sm col-md-6">
+											<label for="org-name">Organization name</label>
+											<h:inputText class="form-control"
+														 aria-describedby="emailHelp" id="org-name" required="true"
+														 label="Organization name" placeholder="Organization name"
+														 validatorMessage="Enter Organization name"
+														 value="#{loginBean.loginDTO.username}"></h:inputText>
+										</div>
+										<div class="form-group.form-control-sm col-md-6">
+											<label for="org-extension">Organization extension</label>
+											<h:inputText class="form-control"
+														 aria-describedby="emailHelp" id="org-extension"
+														 required="true" label="Organization extension"
+														 placeholder="Organization extension"
+														 validatorMessage="Enter Organization extension"
+														 value="#{loginBean.loginDTO.username}"></h:inputText>
+										</div>
+									</div>
+									<div class="form-group.form-control-sm">
+										<label for="org-extension">Organization admin</label>
+										<h:inputText class="form-control" aria-describedby="emailHelp"
+													 id="org-admin" required="true" label="Organization admin"
+													 placeholder="Organization admin"
+													 validatorMessage="Enter Organization admin"
+													 value="#{loginBean.loginDTO.username}"></h:inputText>
+									</div>
+									<hr />
+									<div class="row">
+										<div class="form-group.form-control-sm col-md-6">
+											<label for="org-extension">DB URL</label>
+											<h:inputText class="form-control"
+														 aria-describedby="emailHelp" required="true"
+														 label="Organization admin" placeholder="Organization admin"
+														 validatorMessage="Enter Organization admin"
+														 value="#{loginBean.loginDTO.username}"></h:inputText>
+										</div>
+										<div class="form-group.form-control-sm col-md-6">
+											<label for="org-extension">Action</label>
+											<h:inputText class="form-control"
+														 aria-describedby="emailHelp" required="true"
+														 label="Organization admin" placeholder="Organization admin"
+														 validatorMessage="Enter Organization admin"
+														 value="#{loginBean.loginDTO.username}"></h:inputText>
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group.form-control-sm col-md-6">
+											<label for="org-extension">AWS Access key</label>
+											<h:inputText class="form-control"
+														 aria-describedby="emailHelp" required="true"
+														 label="Organization admin" placeholder="Organization admin"
+														 validatorMessage="Enter Organization admin"
+														 value="#{loginBean.loginDTO.username}"></h:inputText>
+										</div>
+										<div class="form-group.form-control-sm col-md-6">
+											<label for="org-extension">Next token</label>
+											<h:inputText class="form-control"
+														 aria-describedby="emailHelp" required="true"
+														 label="Organization admin" placeholder="Organization admin"
+														 validatorMessage="Enter Organization admin"
+														 value="#{loginBean.loginDTO.username}"></h:inputText>
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group.form-control-sm col-md-6">
+											<label for="org-extension">Select expression</label>
+											<h:inputText class="form-control"
+														 aria-describedby="emailHelp" required="true"
+														 label="Organization admin" placeholder="Organization admin"
+														 validatorMessage="Enter Organization admin"
+														 value="#{loginBean.loginDTO.username}"></h:inputText>
+										</div>
+										<div class="form-group.form-control-sm col-md-6">
+											<label for="org-extension">Signature</label>
+											<h:inputText class="form-control"
+														 aria-describedby="emailHelp" required="true"
+														 label="Organization admin" placeholder="Organization admin"
+														 validatorMessage="Enter Organization admin"
+														 value="#{loginBean.loginDTO.username}"></h:inputText>
+										</div>
+									</div>
 
+								</div>
+								<div class="button-group full-width">
+									<h:commandButton class="btn btn-success" value="Add organization"
+													 action="#{loginBean.loginUser}"></h:commandButton>
+									<h:messages infoStyle="color:darkgreen"
+												errorStyle="color:darkred"></h:messages>
 
-	
+								</div>
+							</h:form>
+						</div>
+						<div class="col col-md-6 add-user-container">
+							<h4>Add user</h4>
+							<h:form label="registerForm" class="form">
+								<div class="inputs-group">
+									<div class="form-group.form-control-sm">
+										<label for="name">Name</label>
+										<h:inputText class="form-control" aria-describedby="emailHelp"
+													 id="name" required="true" label="Name" placeholder="Name"
+													 validatorMessage="Enter name"
+													 value="#{loginBean.loginDTO.username}"></h:inputText>
+									</div>
+									<div class="form-group.form-control-sm">
+										<label for="surname">Surname</label>
+										<h:inputText class="form-control" aria-describedby="emailHelp"
+													 id="surname" required="true" label="Surname"
+													 placeholder="Surname" validatorMessage="Enter Surname"
+													 value="#{loginBean.loginDTO.username}"></h:inputText>
+									</div>
+									<div class="form-group.form-control-sm">
+										<label for="Organization">Organization</label>
+										<h:inputText class="form-control" aria-describedby="emailHelp"
+													 id="organization" required="true" label="Organization"
+													 placeholder="Organization"
+													 validatorMessage="Enter Organization"
+													 value="#{loginBean.loginDTO.username}"></h:inputText>
+									</div>
+									<div class="form-group.form-control-sm">
+										<label for="surname">Resource</label>
+										<h:selectOneMenu class="form-control"
+														 value="#{user.favCoffee1}">
+											<f:selectItem itemValue="Cream Latte"
+														  itemLabel="Coffee3 - Cream Latte" />
+											<f:selectItem itemValue="Extreme Mocha"
+														  itemLabel="Coffee3 - Extreme Mocha" />
+											<f:selectItem itemValue="Buena Vista"
+														  itemLabel="Coffee3 - Buena Vista" />
+										</h:selectOneMenu>
+									</div>
+									<div class="form-group.form-control-sm full-width">
+										<h:selectBooleanCheckbox value="#{resource_one.read}"
+																 class="select-resource-rights" itemLabel="Read" />
+										Read
+										<h:selectBooleanCheckbox value="#{resource_one.write}"
+																 class="select-resource-rights" itemLabel="Write" />
+										Write
+										<h:selectBooleanCheckbox value="#{resource_one.edit}"
+																 class="select-resource-rights" itemLabel="Edit" />
+										Edit
+									</div>
+								</div>
+								<div class="button-group full-width">
+									<h:commandButton class="btn btn-success" value="Add user"
+													 action="#{loginBean.loginUser}"></h:commandButton>
+									<h:messages infoStyle="color:darkgreen"
+												errorStyle="color:darkred"></h:messages>
 
+								</div>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
 
-		<h2 class="title-form-login">Admin page</h2>
-		<br />
-		<h:inputText class="effect-input" required="true" label="Username"
-			placeholder="Username" validatorMessage="Enter username"
-			value="#{loginBean.loginDTO.username}"></h:inputText>
-		<br />
-		<br />
-		
-
-
+		</div>
+	</div>
 </h:body>
 </html>

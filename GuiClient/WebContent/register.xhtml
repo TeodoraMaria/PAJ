@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Login</title>
 	<h:outputStylesheet name="/css/register.css" />
 	<h:outputStylesheet name="/css/main.css" />
 	<h:outputStylesheet name="/css/bootstrap.min.css" />
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 	<h:outputScript target="head" name="/js/register.js" />
 </h:head>
@@ -36,58 +37,72 @@
 						<h3 class="fs-subtitle">Organization name is required in
 							order to place you in the correct resource group</h3>
 						<div class="form-group">
-							<h:inputText class="form-control" aria-describedby="orgHelp"
-								id="organiation-field" required="true" label="Organization"
-								placeholder="Organization"
-								validatorMessage="Enter organization name"
-								value="#{loginBean.loginDTO.username}"></h:inputText>
+							<h:selectOneMenu class="form-control" value="#{user.favCoffee1}">
+								<f:selectItem itemValue="Cream Latte"
+											  itemLabel="Coffee3 - Cream Latte" />
+								<f:selectItem itemValue="Extreme Mocha"
+											  itemLabel="Coffee3 - Extreme Mocha" />
+								<f:selectItem itemValue="Buena Vista"
+											  itemLabel="Coffee3 - Buena Vista" />
+							</h:selectOneMenu>
 						</div>
 						<input type="button" name="next" class="next action-button"
-							value="Next" />
+							   value="Next" />
 					</fieldset>
 					<fieldset>
 						<h2 class="fs-title">Personal details</h2>
 						<h3 class="fs-subtitle">Tell us something more about you</h3>
 						<div class="form-group">
-							<label for="email-field">Email address</label>
+							<label for="email-field">Name</label>
 							<h:inputText class="form-control" aria-describedby="emailHelp"
-								id="email-field" required="true" label="Username"
-								placeholder="Username" validatorMessage="Enter username"
-								value="#{loginBean.loginDTO.username}"></h:inputText>
+										 id="email-field" required="true" label="Name" placeholder="Name"
+										 validatorMessage="Enter username"
+										 value="#{loginBean.loginDTO.name}"></h:inputText>
 							<small id="emailHelp" class="form-text text-muted">We'll
-								never share your email with anyone else.</small>
+								never share your information with anyone else.</small>
 						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Password</label>
-							<h:inputSecret class="form-control" label="Password"
-								required="true" placeholder="Password"
-								validatorMessage="Enter password"
-								value="#{loginBean.loginDTO.password}"></h:inputSecret>
+						<div class="form-group.form-control-sm">
+							<label for="exampleInputPassword1">Surname</label>
+							<h:inputText class="form-control" aria-describedby="emailHelp"
+										 id="email-field" required="true" label="Surname"
+										 placeholder="Surname" validatorMessage="Enter surname"
+										 value="#{loginBean.loginDTO.surname}"></h:inputText>
 						</div>
 						<input type="button" name="previous"
-							class="previous action-button-previous" value="Previous" /> <input
+							   class="previous action-button-previous" value="Previous" /> <input
 							type="button" name="next" class="next action-button" value="Next" />
 					</fieldset>
 					<fieldset>
 						<h2 class="fs-title">Resources</h2>
 						<h3 class="fs-subtitle">Please select at least one resource</h3>
 						<div class="resource-wrapper">
-							<div class="logos">
+							<div class="resource">
 								<h:graphicImage for="id1" class="resource-logo" library="images"
-									name="skype.png" />
-								<h:graphicImage for="id2" class="resource-logo" library="images"
-									name="outlook.png" />
-								<h:graphicImage for="id3" class="resource-logo" library="images"
-									name="slack.png" />
+												name="skype.png" />
+								<h:selectBooleanCheckbox value="#{resource_one.read}" class="select-resource-rights" itemLabel="Read"/> Read
+								<h:selectBooleanCheckbox value="#{resource_one.write}" class="select-resource-rights" itemLabel="Write" /> Write
+								<h:selectBooleanCheckbox value="#{resource_one.edit}" class="select-resource-rights" itemLabel="Edit"/> Edit
 							</div>
-							<div class="checks">
-								<h:selectBooleanCheckbox value="#{user.rememberMe}" /> Skype
-								<h:selectBooleanCheckbox value="#{user.rememberMe}" /> Outlook
-								<h:selectBooleanCheckbox value="#{user.rememberMe}" /> Slack	
+							<hr/>
+							<div class="resource">
+								<h:graphicImage for="id1" class="resource-logo" library="images"
+												name="slack.png" />
+								<h:selectBooleanCheckbox value="#{resource_two.read}" class="select-resource-rights" itemLabel="Read"/> Read
+								<h:selectBooleanCheckbox value="#{resource_two.write}" class="select-resource-rights" itemLabel="Write" /> Write
+								<h:selectBooleanCheckbox value="#{resource_two.edit}" class="select-resource-rights" itemLabel="Edit"/> Edit
 							</div>
+							<hr/>
+							<div class="resource">
+								<h:graphicImage for="id1" class="resource-logo" library="images"
+												name="outlook.png" />
+								<h:selectBooleanCheckbox value="#{resource_three.read}" class="select-resource-rights" itemLabel="Read"/> Read
+								<h:selectBooleanCheckbox value="#{resource_three.write}" class="select-resource-rights" itemLabel="Write" /> Write
+								<h:selectBooleanCheckbox value="#{resource_three.edit}" class="select-resource-rights" itemLabel="Edit"/> Edit
+							</div>
+
 						</div>
 						<input type="button" name="finish" class="next action-button"
-							value="Register" />
+							   value="Register" />
 					</fieldset>
 				</form>
 			</div>

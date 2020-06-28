@@ -7,14 +7,35 @@
     background: url(#{resource['images/bg.jpg']});
     background-size: cover;
     background-repeat: no-repeat;
-	 
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
 }
 .form{
 	padding: 20px;
     background: white;
     border-radius: 5px;
+    width:40%;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-between;
 }
 
+@media only screen and (max-width: 600px) {
+  .form {
+    width:90%;
+    height:75%;
+    justify-content:space-evenly;
+  }
+}
+
+.button-group,.inputs-group{
+	width:100%;
+}
 .title-form-login {
 	color:red;
 }
@@ -46,3 +67,4 @@
 	  display: block;
 	  height:70px;
 }
+

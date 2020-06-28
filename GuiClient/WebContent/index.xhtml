@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Login</title>
 	<h:outputStylesheet name="/css/main.css" />
 	<h:outputStylesheet name="/css/bootstrap.min.css" />
 </h:head>
 <h:body>
 	<div class="wrapper">
-	
-	<div class="container">
-	<h:form label="loginForm" class="form">
-		<h:graphicImage class="logo" library="images" name="onelogo.png"/>
-		<br />
-		<div class="form-group">
-			<label for="email-field">Email address</label>
-			<h:inputText class="form-control" aria-describedby="emailHelp" id="email-field" required="true" label="Username"
-				placeholder="Username" validatorMessage="Enter username"
-				value="#{loginBean.loginDTO.username}"></h:inputText>
-			<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-		</div>
-		<div class="form-group">
-	    	<label for="exampleInputPassword1">Password</label>
-	   		<h:inputSecret class="form-control" label="Password" required="true"
-			placeholder="Password" validatorMessage="Enter password"
-			value="#{loginBean.loginDTO.password}"></h:inputSecret>	
-	   	</div>
-		<h:commandButton class="btn btn-login" value="Login"
-			action="#{loginBean.loginUser}"></h:commandButton>
-		<h:messages infoStyle="color:darkgreen" errorStyle="color:darkred"></h:messages>
-		<h:commandButton class="btn btn-register" value="Register"
-			action="#{loginBean.register}"></h:commandButton>
+		<h:form label="loginForm" class="form">
+			<h:graphicImage class="logo" library="images" name="onelogo.png"/>
+			<br />
+			<div class="inputs-group">
+				<div class="form-group">
+					<label for="email-field">Username</label>
+					<h:inputText class="form-control" aria-describedby="emailHelp" id="email-field" required="true" label="Username"
+								 placeholder="Username" validatorMessage="Enter username"
+								 value="#{loginBean.loginDTO.username}"></h:inputText>
+					<small id="emailHelp" class="form-text text-muted">We'll never share your details with anyone else.</small>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<h:inputSecret class="form-control" label="Password" required="true"
+								   placeholder="Password" validatorMessage="Enter password"
+								   value="#{loginBean.loginDTO.password}"></h:inputSecret>
+				</div>
+			</div>
+			<div class="button-group">
+				<h:commandButton class="btn btn-login" value="Login"
+								 action="#{loginBean.loginUser}"></h:commandButton>
+				<h:messages infoStyle="color:darkgreen" errorStyle="color:darkred"></h:messages>
+				<h:commandButton class="btn btn-register" value="Register"
+								 action="#{loginBean.register}"></h:commandButton>
+			</div>
 
-
-	</h:form>
-</div>
-</div>
+		</h:form>
+	</div>
 </h:body>
 </html>

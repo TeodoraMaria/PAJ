@@ -1,6 +1,8 @@
 package com.example;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -33,6 +35,14 @@ public class User implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "organizationId")
 	private Organization organization;
+	
+	@OneToMany(
+	        mappedBy = "user",
+	        cascade = CascadeType.ALL,
+	        orphanRemoval = true,
+	        fetch = FetchType.EAGER
+	    )
+	private List<UserResource> userResources;
 
 	public User() {
 	}

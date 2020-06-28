@@ -4,5 +4,7 @@
 		<jta-data-source>jdbc/test</jta-data-source>
 		<class>com.example.User</class>
 		<class>com.example.Organization</class>
+		<class>com.example.Resource</class>
+		<class>com.example.UserResource</class>
 	</persistence-unit>
 </persistence>

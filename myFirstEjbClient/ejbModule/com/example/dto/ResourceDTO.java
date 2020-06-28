@@ -6,9 +6,17 @@ public class ResourceDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String name;
+	private String url;
 
 	public ResourceDTO() {
 		super();
+	}
+	
+	public ResourceDTO(int id, String name, String url) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.setUrl(url);
 	}
 
 	public int getId() {
@@ -34,6 +42,14 @@ public class ResourceDTO implements Serializable{
 
 	@Override
 	public String toString() {
-		return "ResoureDTO [id=" + id + ", name=" + name + "]";
+		return "ResourceDTO [id=" + id + ", name=" + name + ", url=" + url + "]";
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }

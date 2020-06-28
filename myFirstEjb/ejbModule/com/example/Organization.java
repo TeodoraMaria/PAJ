@@ -34,14 +34,6 @@ public class Organization implements Serializable{
 	        fetch = FetchType.LAZY
 	    )
 	private List<User> users;
-	
-	@ManyToMany
-	@JoinTable(
-			name = "organization_resource",
-			joinColumns = @JoinColumn(name = "idorganization"),
-			inverseJoinColumns = @JoinColumn(name = "idresource"))
-	private List<Resource> resources;
-	
 
 	public Organization() {
 	}

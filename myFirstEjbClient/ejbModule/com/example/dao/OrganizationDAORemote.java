@@ -7,6 +7,7 @@ import javax.ejb.Remote;
 import com.example.dto.ImportOrganizationDbDTO;
 import com.example.dto.OrganizationDTO;
 import com.example.dto.RegisterOrganizationDTO;
+import com.example.dto.ResourceDTO;
 import com.example.exception.ImportOrganizationDbException;
 import com.example.exception.RegisterOrganizationException;
 
@@ -15,6 +16,6 @@ public interface OrganizationDAORemote extends GenericDAO<OrganizationDTO>{
 	
 	OrganizationDTO register(RegisterOrganizationDTO registerOrganizationDTO) throws RegisterOrganizationException;
 	void importOrganizationDb(ImportOrganizationDbDTO importOrganizationDbDTO) throws ImportOrganizationDbException;
-	List<OrganizationDTO> getAllOrganizations();
+	public List<ResourceDTO> findAllResources();
 	
 }

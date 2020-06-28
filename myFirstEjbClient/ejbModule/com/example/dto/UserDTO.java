@@ -1,14 +1,19 @@
 package com.example.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String username;
 	private String password;
+	private String name;
+	private String surname;
 	private boolean isAdmin;
 	private OrganizationDTO organization;
+	private List<ConfigUserResourceDTO> configs;
 
 	public UserDTO() {
 		super();
@@ -38,12 +43,15 @@ public class UserDTO implements Serializable {
 		this.password = password;
 	}
 
-	public UserDTO(String username, String password, boolean isAdmin, OrganizationDTO organization) {
+	public UserDTO(String name, String surname, String password, String username, boolean isAdmin, OrganizationDTO organization) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.isAdmin = isAdmin;
 		this.organization = organization;
+		this.name = name;
+		this.surname = surname;
+		this.configs = new ArrayList<ConfigUserResourceDTO>();
 	}
 	
 	public boolean isAdmin() {
@@ -65,6 +73,30 @@ public class UserDTO implements Serializable {
 
 	public void setOrganization(OrganizationDTO organization) {
 		this.organization = organization;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<ConfigUserResourceDTO> getConfigs() {
+		return configs;
+	}
+
+	public void setConfigs(List<ConfigUserResourceDTO> configs) {
+		this.configs = configs;
 	}
 
 }

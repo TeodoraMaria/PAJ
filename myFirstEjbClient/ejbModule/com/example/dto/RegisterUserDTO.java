@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterUserDTO {
-	String username;
-	String password;
-	String organizationName;
+	String name;
+	String surname;
+	OrganizationDTO organization;
 	List<String> resources;
 
 	public RegisterUserDTO() {
@@ -13,36 +13,36 @@ public class RegisterUserDTO {
 		resources = new ArrayList<String>();
 	}
 
-	public RegisterUserDTO(String username, String password, String organizationName, List<String> resources) {
+	public RegisterUserDTO(String name, String surname, OrganizationDTO organization, List<String> resources) {
 		super();
-		this.username = username;
-		this.password = password;
-		this.organizationName = organizationName;
+		this.name = name;
+		this.surname = surname;
+		this.organization = organization;
 		this.resources.addAll(resources);
 	}
-
-	public String getUsername() {
-		return username;
+	
+	public String getName() {
+		return name;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getSurname() {
+		return surname;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public OrganizationDTO getOrganization() {
+		return organization;
 	}
 	
-	public String getOrganizationName() {
-		return organizationName;
-	}
-	
-	public void setOrganizationName(String organizationName) {
-		this.organizationName = organizationName;
+	public void setOrganization(OrganizationDTO organization) {
+		this.organization = organization;
 	}
 	
 	public List<String> getResources() {
@@ -55,7 +55,7 @@ public class RegisterUserDTO {
 
 	@Override
 	public String toString() {
-		return "RegisterUserDTO [username=" + username + ", password=" + password + ", organizationName=" + organizationName +", resources=" + resources.toString() +"]";
+		return "RegisterUserDTO [name=" + name + ", surname=" + surname + ", organization=" + organization +", resources=" + resources.toString() +"]";
 	}
 	
 }

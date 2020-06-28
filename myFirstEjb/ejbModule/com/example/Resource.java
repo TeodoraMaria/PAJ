@@ -10,7 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,9 +26,17 @@ public class Resource implements Serializable{
 	@Column(name = "name")
 	private String name;
 	
-	@ManyToMany(mappedBy="resources")
-	private List<Organization> organizations;
+	@Column(name = "url")
+	private String url;
 	
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	@OneToMany(
 	        mappedBy = "resource",
 	        cascade = CascadeType.ALL,
@@ -37,5 +44,31 @@ public class Resource implements Serializable{
 	        fetch = FetchType.LAZY
 	    )
 	private List<UserResource> userResources;
+
+	public int getIdresource() {
+		return idresource;
+	}
+
+	public void setIdresource(int idresource) {
+		this.idresource = idresource;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<UserResource> getUserResources() {
+		return userResources;
+	}
+
+	public void setUserResources(List<UserResource> userResources) {
+		this.userResources = userResources;
+	}
+	
+	
 
 }

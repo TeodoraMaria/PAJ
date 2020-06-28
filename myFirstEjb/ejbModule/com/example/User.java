@@ -29,6 +29,12 @@ public class User implements Serializable {
 	@Column(name = "username")
 	private String username;
 	
+	@Column(name = "name")
+	private String name;
+	
+	@Column(name = "surname")
+	private String surname;
+	
 	@Column(name = "isadmin")
 	private boolean isadmin;
 	
@@ -44,13 +50,25 @@ public class User implements Serializable {
 	    )
 	private List<UserResource> userResources;
 
+	public List<UserResource> getUserResources() {
+		return userResources;
+	}
+
+	public void setUserResources(List<UserResource> userResources) {
+		this.userResources = userResources;
+	}
+
 	public User() {
 	}
 
-	public User(String password, String username, boolean isAdmin) {
+	public User(String name, String surname, String password, String username, boolean isAdmin, Organization org) {
 		super();
 		this.password = password;
 		this.username = username;
+		this.name = name;
+		this.surname = surname;
+		this.isadmin = isAdmin;
+		this.organization = org;
 	}
 
 	public int getIduser() {
@@ -92,5 +110,23 @@ public class User implements Serializable {
 	public void setOrganization(Organization organization) {
 		this.organization = organization;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+	
+	
 
 }
